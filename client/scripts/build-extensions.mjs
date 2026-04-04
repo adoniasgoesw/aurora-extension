@@ -93,7 +93,20 @@ async function buildOne({ id, srcDir, folderInZip }) {
   }
 }
 
+function sourcesAvailable() {
+  return fs.existsSync(META_SRC) && fs.existsSync(MJ_SRC);
+}
+
 async function main() {
+  if (!sourcesAvailable()) {
+    console.warn(
+      "Pastas de origem das extensões não encontradas (ex.: Aurora Meta / Aurora MidJourney ao lado do repo).",
+    );
+    console.warn("Pulando geração de ZIP — normal em CI (Netlify). O site será buildado sem reempacotar extensões.");
+    fs.mkdirSync(OUT_ZIP_DIR, { recursive: true });
+    process.exit(0);
+  }
+
   console.log("Build extensions (somente ZIP) →", OUT_ZIP_DIR);
   fs.mkdirSync(OUT_ZIP_DIR, { recursive: true });
   for (const name of fs.readdirSync(OUT_ZIP_DIR)) {
