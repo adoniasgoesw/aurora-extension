@@ -97,12 +97,28 @@ function sourcesAvailable() {
   return fs.existsSync(META_SRC) && fs.existsSync(MJ_SRC);
 }
 
+function isNetlifyBuild() {
+  const n = process.env.NETLIFY;
+  return n === "true" || n === "1";
+}
+
 async function main() {
-  if (!sourcesAvailable()) {
-    console.warn(
-      "Pastas de origem das extensões não encontradas (ex.: Aurora Meta / Aurora MidJourney ao lado do repo).",
-    );
-    console.warn("Pulando geração de ZIP — normal em CI (Netlify). O site será buildado sem reempacotar extensões.");
+  const skipByFlag = process.env.SKIP_EXTENSION_BUILD === "1";
+  const onNetlify = isNetlifyBuild();
+  const missingSources = !sourcesAvailable();
+
+  if (skipByFlag || onNetlify || missingSources) {
+    if (onNetlify) {
+      console.warn(
+        "Netlify: pulando empacotamento das extensões (fontes ficam fora do repo). O Vite build continua.",
+      );
+    } else if (skipByFlag) {
+      console.warn("SKIP_EXTENSION_BUILD=1: pulando empacotamento das extensões.");
+    } else {
+      console.warn(
+        "Pastas Aurora Meta / Aurora MidJourney não encontradas no caminho esperado; pulando ZIP.",
+      );
+    }
     fs.mkdirSync(OUT_ZIP_DIR, { recursive: true });
     process.exit(0);
   }
