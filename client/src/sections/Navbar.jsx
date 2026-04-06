@@ -25,14 +25,14 @@ export default function Navbar() {
                         to="/"
                         className="flex items-center gap-2 rounded-lg outline-none ring-offset-2 focus-visible:ring-2 focus-visible:ring-cyan-500"
                     >
-                        <div className="h-9 w-9 shrink-0 sm:h-10 sm:w-10">
+                        <div className="h-9 w-9 shrink-0">
                             <img
                                 src={Logo}
                                 alt="Logo Aurora"
                                 className="h-full w-full object-contain"
                             />
                         </div>
-                        <span className="text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-2xl">
+                        <span className="inline-block bg-linear-to-r from-cyan-500 via-violet-500 to-pink-500 bg-clip-text text-xl font-semibold tracking-tight text-transparent sm:text-2xl">
                             Aurora
                         </span>
                     </Link>

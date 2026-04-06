@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
+import Tag from "../../components/Tag";
 import { ArrowRight } from "lucide-react";
 
 function Code({ children }) {
@@ -94,12 +95,10 @@ const steps = [
 
 export default function DocumentionHero() {
     return (
-        <section className="px-4 pb-24 pt-8 sm:px-6 md:px-10 md:pt-12 lg:px-16 lg:pt-16 xl:px-24">
+        <section className="px-4 pb-20 pt-8 sm:px-6 md:px-10 md:pt-12 lg:px-16 lg:pt-16 xl:px-24">
             <div className="mx-auto max-w-7xl text-left">
                 <header className="border-b border-neutral-200/90 pb-10 dark:border-neutral-800/90">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-neutral-500 dark:text-neutral-400">
-                        Documentação
-                    </p>
+                    <Tag label="Documentação" />
                     <h1 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-neutral-950 sm:text-[2.125rem] sm:leading-tight dark:text-neutral-50">
                         Instalação da extensão Aurora
                     </h1>

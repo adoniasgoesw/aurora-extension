@@ -7,13 +7,13 @@ import Image from "../../assets/banner.png";
 export default function HomeHero() {
     const navigate = useNavigate();
     return (
-        <section className="px-5 py-6 md:px-10 lg:px-20 xl:px-32">
+        <section className="px-4 pb-20 pt-8 sm:px-6 md:px-10 md:pt-12 lg:px-16 lg:pt-16 xl:px-24">
             <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-20">
                 <div className="flex flex-col items-center justify-center gap-5">
                     <div className="flex flex-col items-center justify-center gap-5">
-                        <Tag label="Fluxo criativo com IA" />
+                        <Tag label="Extensões Aurora" />
                         <h1 className="text-center text-5xl font-base">
-                            Automatize seu fluxo criativo na Meta AI.
+                            Automatize seu fluxo criativo com a Aurora.
                         </h1>
                         <p className="max-w-2xl text-center text-gray-700">
                             Envie vários prompts, gere imagens automaticamente e baixe tudo
