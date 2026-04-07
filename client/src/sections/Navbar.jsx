@@ -18,7 +18,7 @@ export default function Navbar() {
     }, [location.pathname]);
 
     return (
-        <header className="fixed top-0 left-0 z-50 w-full  backdrop-blur-md dark:bg-neutral-950/85 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
+        <header className="fixed top-0 left-0 z-50 w-full border-b border-neutral-200/80 bg-white/90 backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-950/90 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
             <div className="mx-auto max-w-7xl ">
                 <nav className="flex h-16 items-center justify-between sm:h-17">
                     <Link
@@ -84,7 +84,7 @@ export default function Navbar() {
                         className="relative z-50 px-4 py-4 sm:px-6 md:hidden"
                     >
                         <nav
-                            className="mx-auto max-w-7xl rounded-2xl bg-white p-2 border border-neutral-200 "
+                            className="mx-auto max-w-7xl rounded-2xl border border-neutral-200 bg-white p-2 shadow-none ring-0"
                             aria-label="Menu de navegação"
                         >
                             <ul className="flex flex-col gap-1">

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/*
+ * Dark mode só com .dark no HTML — não segue o tema do SO.
+ * Assim celulares em “modo escuro” continuam vendo o site claro (cores/gradientes),
+ * em vez de ativar todas as utilities dark: por prefers-color-scheme.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -13,6 +20,8 @@
   }
 
   html {
+    color-scheme: light;
+    background-color: #fff;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -22,6 +31,8 @@
   }
 
   body {
+    background-color: #fff;
+    color: #171717;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
